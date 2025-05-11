@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className="w-full border-b border-gray-200 shadow-md">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           <Link
             href="/"
             className={`text-xl font-bold ${
