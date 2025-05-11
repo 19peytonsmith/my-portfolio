@@ -1,55 +1,62 @@
 // components/Navbar.tsx
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  const toggleMenu = () => setMenuOpen(!menuOpen)
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const navLinks = [
-    { name: 'About Me', href: '/about-me' },
-    { name: 'Experience', href: '/experience' },
-    { name: 'Projects', href: '/projects' },
-  ]
+    { name: "About Me", href: "/about-me" },
+    { name: "Experience", href: "/experience" },
+    { name: "Projects", href: "/projects" },
+  ];
+
+  const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="w-full border-b border-gray-200 bg-white shadow-md">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="w-full border-b border-gray-200 shadow-md">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Left: Home */}
-          <Link href="/" className="text-xl font-bold text-gray-900">
+          <Link
+            href="/"
+            className={`text-xl font-bold ${
+              isActive("/") ? "text-primary" : "text-secondary"
+            } hover:text-primary tracking-widest`}
+          >
             Home
           </Link>
 
-          {/* Right: Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-blue-600 transition"
+                className={`${
+                  isActive(link.href) ? "text-primary" : "text-secondary"
+                } hover:text-primary transition tracking-widest`}
               >
                 {link.name}
               </Link>
             ))}
-            {/* Resume Link as external */}
             <a
               href="/assets/Peyton_Smith_Resume_2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-blue-600 transition"
+              className="text-secondary hover:text-primary transition tracking-widest"
             >
               Resume
             </a>
           </div>
 
-          {/* Mobile menu toggle */}
           <button
-            className="md:hidden text-gray-700 focus:outline-none"
+            className="md:hidden text-secondary focus:outline-none"
             onClick={toggleMenu}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -57,7 +64,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden px-4 pb-4">
           <div className="flex flex-col space-y-3">
@@ -66,7 +72,9 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-gray-700 hover:text-blue-600 transition"
+                className={`${
+                  isActive(link.href) ? "text-primary" : "text-secondary"
+                } hover:text-primary transition tracking-widest`}
               >
                 {link.name}
               </Link>
@@ -76,7 +84,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="text-gray-700 hover:text-blue-600 transition"
+              className="text-secondary hover:text-primary transition tracking-widest"
             >
               Resume
             </a>
@@ -84,5 +92,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  )
+  );
 }

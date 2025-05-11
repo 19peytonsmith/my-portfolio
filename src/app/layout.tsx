@@ -1,19 +1,32 @@
 // app/layout.tsx
-import './globals.css'
-import Navbar from '@/components/Navbar'
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata = {
-  title: 'My Portfolio',
-  description: 'Peyton Jeffrey Smith Portfolio',
-}
+  title: "My Portfolio",
+  description: "Peyton Jeffrey Smith Portfolio",
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={manrope.variable}>
+      <body className="font-sans flex flex-col min-h-screen">
         <Navbar />
-        <main className="p-6">{children}</main>
+        <main className="flex-1 flex items-center justify-center max-w-5xl w-full mx-auto px-6 sm:px-8 md:py-0 py-8">
+          {children}
+        </main>
       </body>
     </html>
-  )
+  );
 }
