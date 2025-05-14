@@ -22,18 +22,21 @@ const experiences = [
       "Managed version control with Git to improve development workflow.",
       "Optimized performance of Azure Cosmos DB integrations for scalable and high-availability web applications.",
     ],
-
-    techStack: [
-      ".NET",
-      "USWDS",
-      "Azure DevOps",
-      "Azure Cosmos DB",
-      "HTML",
-      "CSS",
-      "Sass",
-      "Javascript",
-      "Git",
-    ],
+    techs: {
+      techStack: [
+        ".NET",
+        "Azure DevOps",
+        "Git",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "USWDS",
+        "Azure Cosmos DB",
+        "RESTful APIs",
+        "C#",
+      ],
+      columns: 2,
+    },
   },
   {
     company: "Wayhome Services Co.",
@@ -49,24 +52,27 @@ const experiences = [
       "Integrated RSpec and Cypress testing to boost efficiency by 50%.",
       "Led UX overhaul efforts, increasing user satisfaction by 30%.",
     ],
-    techStack: [
-      "Ruby on Rails",
-      "Docker",
-      "GitHub Actions",
-      "Bootstrap",
-      "JavaScript",
-      "HTML",
-      "SCSS",
-      "Rspec",
-      "Cypress",
-      "Redis",
-      "RESTful APIs",
-      "MinIO",
-      "RubyGem",
-      "Kanban",
-      "Git",
-      "Bash",
-    ],
+    techs: {
+      techStack: [
+        "Ruby on Rails",
+        "Docker",
+        "GitHub Actions",
+        "Bootstrap",
+        "JavaScript",
+        "HTML",
+        "SCSS",
+        "Rspec",
+        "Cypress",
+        "Redis",
+        "RESTful APIs",
+        "MinIO",
+        "RubyGem",
+        "Kanban",
+        "Git",
+        "Bash",
+      ],
+      columns: 3,
+    },
   },
 ];
 
@@ -95,7 +101,10 @@ export default function Experience() {
               <p className="text-sm tracking-wider font-light mb-2">
                 Technologies I have been experiencing here:
               </p>
-              <GridList items={experience.techStack} columns={2} />
+              <GridList
+                items={experience.techs.techStack}
+                columns={experience.techs.columns}
+              />
             </div>
           </div>
           <div className="order-1 md:order-2 flex flex-col gap-4">
@@ -113,7 +122,7 @@ export default function Experience() {
             <h3 className="text-base font-bold text-primary ml-8">
               {experience.duration}
             </h3>
-            <DarkBox className="xs:max-w-2xl p-6">
+            <DarkBox className="xs:max-w-2xl p-6 min-w-[400px]">
               <ul className="flex flex-col gap-2 text-sm">
                 {experience.highlights.map((item, i) => (
                   <li key={i} className="carrot-bullet-item tracking-wider">
