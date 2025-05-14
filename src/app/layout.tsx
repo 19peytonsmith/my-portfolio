@@ -27,11 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${manrope.variable} ${firaCode.variable}`}>
-      <body className="font-sans flex flex-col min-h-screen">
+      <body>
         <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center max-w-5xl w-full mx-auto px-6 sm:px-8 md:py-0 py-8">
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

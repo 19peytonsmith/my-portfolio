@@ -1,14 +1,20 @@
 // components/GridList.tsx
 import React from "react";
 
-const GridList = ({ items }: { items: string[] }) => {
+interface GridListProps {
+  items: string[];
+  columns?: number;
+}
+
+const GridList: React.FC<GridListProps> = ({ items, columns = 2 }) => {
+  const mdColsClass = `md:grid-cols-${columns}`;
+
   return (
-    <ul className="grid grid-cols-2 lg:grid-cols-3 gap-1 lg:w-auto w-max mx-auto justify-center">
+    <ul
+      className={`grid grid-cols-2 ${mdColsClass} gap-1 lg:w-auto w-max mx-auto justify-center`}
+    >
       {items.map((item, index) => (
-        <li
-          key={index}
-          className="carrot-bullet-item whitespace-nowrap tracking-wider text-base"
-        >
+        <li key={index} className="carrot-bullet-item tracking-wider">
           {item}
         </li>
       ))}

@@ -6,7 +6,7 @@ import IconLink from "@/components/IconLink";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row justify-between w-full gap-8 md:gap-4">
+    <div className="flex flex-col md:flex-row justify-between w-full max-w-5xl px-6 sm:px-8 md:py-0 py-8 gap-8 md:gap-4 mx-auto md:mt-48">
       {/* Left Column */}
       <div className="mx-auto md:mx-0 flex justify-center md:justify-start flex-col">
         <h2 className="lg:text-3xl text-2xl font-bold text-primary">

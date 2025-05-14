@@ -21,7 +21,7 @@ export default function AboutMe() {
   ];
 
   return (
-    <div>
+    <div className="w-full max-w-5xl px-6 sm:px-8 md:py-0 py-8 mx-auto md:mt-24">
       <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
         <span>Who am I?</span>
         <span className="after-light-line"></span>
@@ -42,7 +42,7 @@ export default function AboutMe() {
             <p className="text-sm tracking-wider font-light mb-2 text-center">
               Here's some technologies I have experience with:
             </p>
-            <GridList items={techStack} />
+            <GridList items={techStack} columns={3} />
           </div>
         </div>
         <div className="flex lg:flex-1 flex-2 flex-col justify-center items-center">
