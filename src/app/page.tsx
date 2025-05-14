@@ -1,8 +1,8 @@
 import { Linkedin, Github, Mail } from "lucide-react";
-import Image from "next/image";
 
 import DarkBox from "@/components/Darkbox";
 import IconWrapper from "@/components/IconWrapper";
+import IconLink from "@/components/IconLink";
 
 export default function Home() {
   return (
@@ -24,34 +24,31 @@ export default function Home() {
             technologies along the way!
           </p>
         </DarkBox>
-
         {/* Social Links */}
         <div className="flex space-x-4 justify-center md:justify-start">
-          <a
-            href="https://www.linkedin.com/in/your-linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-secondary hover:text-primary"
+          <IconLink
+            href="https://www.linkedin.com/in/19peytonsmith/"
+            title="LinkedIn"
+            ariaLabel="LinkedIn Profile"
           >
             <IconWrapper Icon={Linkedin} />
-          </a>
-          <a
-            href="https://github.com/your-github"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-secondary hover:text-primary"
+          </IconLink>
+          <IconLink
+            href="https://github.com/19peytonsmith"
+            title="GitHub"
+            ariaLabel="GitHub Profile"
           >
             <IconWrapper Icon={Github} />
-          </a>
-          <a
-            href="mailto:your.email@example.com"
-            className="text-secondary hover:text-primary"
+          </IconLink>
+          <IconLink
+            href="mailto:19peytonsmith@gmail.com"
+            title="Send Email"
+            ariaLabel="Email Peyton"
           >
             <IconWrapper Icon={Mail} />
-          </a>
+          </IconLink>
         </div>
       </div>
-
       {/* Right Column */}
       <div className="flex justify-center md:justify-end items-center">
         <div className="relative w-full max-w-[400px] aspect-square">
