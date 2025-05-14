@@ -7,7 +7,6 @@ import IconLink from "@/components/IconLink";
 export default function Home() {
   return (
     <div className="flex flex-col md:flex-row justify-between w-full max-w-5xl px-6 sm:px-8 md:py-0 py-8 gap-8 md:gap-4 mx-auto md:mt-48">
-      {/* Left Column */}
       <div className="mx-auto md:mx-0 flex justify-center md:justify-start flex-col">
         <h2 className="lg:text-3xl text-2xl font-bold text-primary">
           Hey! I'm
@@ -24,7 +23,6 @@ export default function Home() {
             technologies along the way!
           </p>
         </DarkBox>
-        {/* Social Links */}
         <div className="flex space-x-4 justify-center md:justify-start">
           <IconLink
             href="https://www.linkedin.com/in/19peytonsmith/"
@@ -49,7 +47,6 @@ export default function Home() {
           </IconLink>
         </div>
       </div>
-      {/* Right Column */}
       <div className="flex justify-center md:justify-end items-center">
         <div className="relative w-full max-w-[400px] aspect-square">
           <div className="p-1 rounded-full border-3 border-primary">

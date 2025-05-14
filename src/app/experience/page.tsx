@@ -7,6 +7,21 @@ import Link from "next/link";
 import GridList from "@/components/GridList";
 import DarkBox from "@/components/Darkbox";
 
+interface Experience {
+  company: string;
+  title: string;
+  duration: string;
+  image: string;
+  website: string;
+  highlights: string[];
+  techs: ExperienceTech;
+}
+
+interface ExperienceTech {
+  techStack: string[];
+  columns: number;
+}
+
 const experiences = [
   {
     company: "Institute for Intergovernmental Research",
