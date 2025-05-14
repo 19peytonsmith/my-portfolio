@@ -16,7 +16,7 @@ export default function Home() {
           Peyton Smith
         </h1>
         <DarkBox className="xs:max-w-md my-8">
-          <p className="text-lg">
+          <p className="text-lg tracking-widest">
             I'm an FSU Computer Engineering graduate with a passion for software
             development. My current area of interest lies in full-stack app
             development with hands-on work experience using Ruby on Rails, and
