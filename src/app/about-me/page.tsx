@@ -21,7 +21,7 @@ export default function AboutMe() {
   ];
 
   return (
-    <div className="w-full max-w-5xl px-6 sm:px-8 md:py-0 py-8 mx-auto md:mt-24">
+    <div className="w-full max-w-5xl px-6 sm:px-8 md:py-0 py-8 mx-auto md:mt-20">
       <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
         <span>Who am I?</span>
         <span className="after-light-line"></span>
