@@ -145,7 +145,7 @@ export default function Projects() {
         >
           <div className="flex flex-col gap-4 max-w-[500px]">
             <h1 className="text-3xl font-bold text-title">{project.name}</h1>
-            <DarkBox className="xs:max-w-md p-6 min-w-[400px]">
+            <DarkBox className="xs:max-w-md p-6 md:min-w-[400px]">
               <p dangerouslySetInnerHTML={{ __html: project.description }} />
             </DarkBox>
             <div>
