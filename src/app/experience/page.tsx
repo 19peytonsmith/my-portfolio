@@ -124,7 +124,7 @@ export default function Experience() {
               />
             </div>
           </div>
-          <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 max-w-[540px]">
+          <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 md:max-w-[540px]">
             <h2 className="text-xl font-bold text-secondary">
               {experience.title} @
             </h2>
@@ -139,7 +139,7 @@ export default function Experience() {
             <h3 className="text-base font-bold text-primary ml-8">
               {experience.duration}
             </h3>
-            <DarkBox className="xs:max-w-2xl p-6">
+            <DarkBox className="md:max-w-2xl w-full p-6">
               <ul className="flex flex-col gap-2 text-sm">
                 {experience.highlights.map((item, i) => (
                   <li key={i} className="carrot-bullet-item tracking-wider">

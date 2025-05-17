@@ -140,16 +140,18 @@ export default function Projects() {
       </div>
       <div className="w-full max-w-5xl px-6 sm:px-8 mx-auto">
         <div
-          className={`flex flex-col md:flex-row items-center gap-8 
+          className={`flex flex-col md:flex-row items-center gap-8
           ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
         >
-          <div className="flex flex-col gap-4 max-w-[500px]">
-            <h1 className="text-3xl font-bold text-title">{project.name}</h1>
-            <DarkBox className="xs:max-w-md p-6 md:min-w-[400px]">
+          <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
+            <h1 className="text-3xl font-bold text-title md:text-left text-center">
+              {project.name}
+            </h1>
+            <DarkBox className="xs:max-w-md p-6">
               <p dangerouslySetInnerHTML={{ __html: project.description }} />
             </DarkBox>
             <div>
-              <ul className="flex flex-wrap ml-4 gap-2">
+              <ul className="flex flex-wrap ml-4 gap-2 md:justify-start justify-center">
                 {project.tags.map((tag, i) => (
                   <li key={i} className="tracking-widest text-sm">
                     {tag}
