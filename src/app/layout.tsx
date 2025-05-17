@@ -16,7 +16,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: "My Portfolio",
+  title: "Peyton's Portfolio",
   description: "Peyton Jeffrey Smith Portfolio",
 };
 
