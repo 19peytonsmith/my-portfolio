@@ -33,7 +33,7 @@ export default function Navbar() {
             Home
           </Link>
 
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -49,7 +49,7 @@ export default function Navbar() {
               href="/assets/Peyton_Smith_Resume_2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary hover:text-primary transition tracking-widest"
+              className="text-secondary hover:text-primary transition tracking-widest border-2 px-3 py-2 rounded-full border-primary"
             >
               Resume
             </a>
