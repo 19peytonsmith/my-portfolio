@@ -41,7 +41,7 @@ const experiences = [
     ],
     techs: {
       techStack: [
-        ".NET",
+        "C#/.NET",
         "Azure DevOps",
         "Git",
         "JavaScript",
@@ -50,7 +50,6 @@ const experiences = [
         "USWDS",
         "Azure Cosmos DB",
         "RESTful APIs",
-        "C#",
       ],
       minColumnWidth: 180,
     },
@@ -84,7 +83,6 @@ const experiences = [
         "RESTful APIs",
         "MinIO",
         "RubyGem",
-        "Kanban",
         "Git",
         "Bash",
       ],
