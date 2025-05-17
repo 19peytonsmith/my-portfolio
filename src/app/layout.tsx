@@ -17,7 +17,8 @@ const firaCode = Fira_Code({
 
 export const metadata = {
   title: "Peyton's Portfolio",
-  description: "Peyton Jeffrey Smith Portfolio",
+  description:
+    "Central place to showcase my projects, skills, and background in software development.",
 };
 
 export default function RootLayout({
