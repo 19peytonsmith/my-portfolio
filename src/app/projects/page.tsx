@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 
 import DarkBox from "@/components/Darkbox";
 import IconLink from "@/components/IconLink";
