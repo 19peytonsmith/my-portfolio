@@ -5,20 +5,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* White */
+  --foreground: #171717; /* Very dark gray */
+
+  --color-primary: #2e8b57; /* Sea green */
+  --color-secondary: #2c2c2e; /* Charcoal gray */
+
+  --box-background: #f2f2f2cc; /* Light translucent gray */
+  --box-text: #333333; /* Very dark gray */
+
+  --color-title: #007a8a; /* Teal */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #333333; /* Very dark gray */
+    --foreground: #ededed; /* Light gray */
+
+    --color-primary: #90ee90; /* Light green */
+    --color-secondary: #ffffff; /* White */
+
+    --box-background: #18191a4d; /* Dark gray */
+    --box-text: #cccccc; /* Light gray */
+
+    --color-title: #00ced1; /* Dark cyan */
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-primary: #90ee90; /* Light green */
-  --color-secondary: #ffffff; /* White */
-  --color-title: #00ced1; /* Dark cyan */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
 
-  --box-background: #18191a4d; /* Dark gray */
-  --box-text: #cccccc; /* Light gray */
+  --color-title: var(--color-title);
+  --box-background: var(--box-background);
+  --box-text: var(--box-text);
 
   --font-sans: var(--font-manrope), sans-serif;
   --font-mono: var(--font-geist-mono);
@@ -26,13 +49,6 @@
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #333333;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -65,7 +81,7 @@ li {
 
   .carrot-bullet-item::before {
     content: ">";
-    font-size: 0.625rem; /* 10px */
+    font-size: 0.625rem;
     position: relative;
     top: -1px;
     margin-right: 0.5rem;
