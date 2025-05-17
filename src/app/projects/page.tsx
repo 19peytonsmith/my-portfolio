@@ -136,14 +136,14 @@ export default function Projects() {
           <span>Personal Projects</span>
           <span className="after-light-line"></span>
         </h1>
-        <p className="text-gray">{index + 1}.</p>
       </div>
-      <div className="w-full max-w-5xl px-6 sm:px-8 mx-auto">
+      <div className="w-full max-w-7xl px-6 sm:px-8 mx-auto">
         <div
-          className={`flex flex-col md:flex-row items-center gap-8
+          className={`flex flex-col md:flex-row justify-center items-center gap-8
           ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
         >
           <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
+            <p className="text-gray">{index + 1}.</p>
             <h1 className="text-3xl font-bold text-title md:text-left text-center">
               {project.name}
             </h1>
