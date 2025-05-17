@@ -7,6 +7,7 @@ import Link from "next/link";
 import DarkBox from "@/components/Darkbox";
 import IconLink from "@/components/IconLink";
 import IconWrapper from "@/components/IconWrapper";
+import Indicators from "@/components/Indicators";
 
 import type { LucideIcon } from "lucide-react";
 import { ExternalLink, Github, Youtube } from "lucide-react";
@@ -30,8 +31,17 @@ const projects: Project[] = [
   {
     name: "RubyGem Tazworks API Wrapper",
     description:
-      "A comprehensive RubyGem API wrapper for an external service - Tazworks API, with over 30 easily interfaceable methods and classes used within the rental application flow @ Wayhome made to screen tenants and property partners.",
-    tags: ["Ruby", "Rest Client", "RSpec", "OOP", "VCR", "API", "Unit Testing"],
+      'A comprehensive RubyGem API wrapper for an external service - <a href="https://docs.developer.tazworks.com/" class="text-primary" target="_blank" rel="noopener noreferrer">Tazworks API</a>, with over 30 easily interfaceable methods and classes used within the rental application flow @ Wayhome made to screen tenants and property partners.',
+    tags: [
+      "Ruby",
+      "RubyGems",
+      "API",
+      "HTTP Client",
+      "RSpec",
+      "VCR",
+      "Unit Testing",
+      "Integration Testing",
+    ],
     image: "/assets/images/projects/tazworks.png",
     links: [
       {
@@ -44,7 +54,14 @@ const projects: Project[] = [
     name: "Mouthpiece",
     description:
       "A social media app whose motivation is seamlessly sharing posts, pictures, and videos for a community of those interested in sports. The app has basic social media functionality with some geolocation features.",
-    tags: ["Xcode", "Swift", "Firebase", "Google Maps & Places API", "Figma"],
+    tags: [
+      "Xcode",
+      "Swift",
+      "Firebase",
+      "Google Maps API",
+      "Google Places API",
+      "Figma",
+    ],
     image: "/assets/images/projects/mouthpiece.png",
     links: [
       {
@@ -56,30 +73,32 @@ const projects: Project[] = [
   {
     name: "Zillow Guessing Game",
     description:
-      "Ongoing personal Python web-app project where it fetches a random Zillow listing, displays the info alongside a gallery of all of the pictures and has the user guess the price.",
+      "A Python + React web app that fetches a random Zillow listing, displays its images and details, and has the user guess the price. Includes scraping, data handling, and a Flask API backend.",
     tags: [
-      "React",
       "Python",
       "Flask",
+      "React",
+      "Docker",
+      "Web Scraping",
+      "BeautifulSoup",
+      "Pandas",
+      "JavaScript",
       "HTML",
       "CSS",
-      "JavaScript",
-      "BeautifulSoup",
-      "pandas",
     ],
     image: "/assets/images/projects/zillow.png",
     links: [
       {
         Icon: Github,
-        url: "https://github.com/19peytonsmith/Zillow-Project",
+        url: "https://github.com/19peytonsmith/ZillowGuessr",
       },
     ],
   },
   {
     name: "C# eCommerce App",
     description:
-      "Starting from a basic console application, I've transformed this project into a 2-sided admin/customer full-stack desktop application with a file system-based database and a working web API to query data used to perform CRUD operations on products within the database.",
-    tags: ["C#", ".NET", "XAML", "API", "Swagger"],
+      "A multi-layered C# project that evolved from a basic console app into a full-stack desktop and web application with admin and customer views. Features a file-based database and a RESTful API (Swagger-documented) to handle CRUD operations on product data.",
+    tags: ["C#", ".NET", "UWP", "XAML", "REST API", "Swagger"],
     image: "/assets/images/projects/ecommerce.png",
     links: [
       {
@@ -95,8 +114,15 @@ const projects: Project[] = [
   {
     name: "SQL Multiplayer Game Database",
     description:
-      "Leveraged SQL to plot entities associated to the game including user information, friend data, map/score statistics, and tournament functionality. I also optimized and developed SQL scripts and queries to yield data from various levels of the database architecture.",
-    tags: ["SQL", "mySQL", "ER Diagram", "API", "Swagger"],
+      "Developed and optimized SQL/MariaDB schemas and queries for a gaming database, modeling users, friends, scores, maps, and tournaments. Included ER diagram design and multi-level data retrieval across the architecture.",
+    tags: [
+      "SQL",
+      "MySQL",
+      "MariaDB",
+      "ER Diagram",
+      "Database Design",
+      "Query Optimization",
+    ],
     image: "/assets/images/projects/sql.png",
   },
 ];
@@ -122,7 +148,7 @@ export default function Projects() {
           <div className="flex flex-col gap-4 max-w-[500px]">
             <h1 className="text-3xl font-bold text-title">{project.name}</h1>
             <DarkBox className="xs:max-w-md p-6 min-w-[400px]">
-              <p>{project.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: project.description }} />
             </DarkBox>
             <div>
               <ul className="flex flex-wrap ml-4 gap-2">
@@ -152,23 +178,7 @@ export default function Projects() {
             </div>
           </div>
         </div>
-        {/* Indicators */}
-        <div
-          className={`
-            flex justify-center mt-6 gap-2
-            ${"md:fixed md:bottom-6 md:left-1/2 md:-translate-x-1/2"}
-          `}
-        >
-          {projects.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`h-4 w-4 rounded-full transition-all duration-300 ${
-                i === index ? "bg-primary w-6" : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
+        <Indicators items={projects} currentIndex={index} onSelect={setIndex} />
       </div>
     </div>
   );

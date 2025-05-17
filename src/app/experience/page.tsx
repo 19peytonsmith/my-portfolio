@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import GridList from "@/components/GridList";
 import DarkBox from "@/components/Darkbox";
+import Indicators from "@/components/Indicators";
 
 interface Experience {
   company: string;
@@ -150,24 +151,11 @@ export default function Experience() {
             </DarkBox>
           </div>
         </div>
-
-        {/* Indicators */}
-        <div
-          className={`
-            flex justify-center mt-6 gap-2
-            ${"md:fixed md:bottom-6 md:left-1/2 md:-translate-x-1/2"}
-          `}
-        >
-          {experiences.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`h-4 w-4 rounded-full transition-all duration-300 ${
-                i === index ? "bg-primary w-6" : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
+        <Indicators
+          items={experiences}
+          currentIndex={index}
+          onSelect={setIndex}
+        />
       </div>
     </div>
   );
