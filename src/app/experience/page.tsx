@@ -19,7 +19,9 @@ interface Experience {
 
 interface ExperienceTech {
   techStack: string[];
-  columns: number;
+  // Minimum column width for grid elements (nasty hack to get it to work, based on width of the longest tech)
+  // Hoping for a change in the future to make this more dynamic (based off max-content)
+  minColumnWidth: number;
 }
 
 const experiences = [
@@ -27,7 +29,7 @@ const experiences = [
     company: "Institute for Intergovernmental Research",
     title: "Application Developer",
     duration: "January 2025 - Present",
-    image: "/assets/images/experience/iirlogo.png",
+    image: "/assets/images/experience/iir.png",
     website: "https://www.iir.com/",
     highlights: [
       "Developed responsive web applications for the Department of Justice and Bureau of Justice Assistance using .NET and the U.S. Web Design System (USWDS).",
@@ -50,7 +52,7 @@ const experiences = [
         "RESTful APIs",
         "C#",
       ],
-      columns: 2,
+      minColumnWidth: 180,
     },
   },
   {
@@ -86,7 +88,7 @@ const experiences = [
         "Git",
         "Bash",
       ],
-      columns: 3,
+      minColumnWidth: 170,
     },
   },
 ];
@@ -105,7 +107,7 @@ export default function Experience() {
       </div>
       <div className="w-full max-w-7xl px-6 sm:px-8 mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8">
-          <div className="order-2 md:order-1 flex flex-col justify-center items-center gap-4">
+          <div className="order-2 md:order-1 flex flex-col gap-4 flex-1">
             <div className="w-full max-w-[800px] max-h-[400px]">
               <img
                 src={experience.image}
@@ -113,16 +115,16 @@ export default function Experience() {
               />
             </div>
             <div>
-              <p className="text-sm tracking-wider font-light mb-2">
+              <p className="text-sm tracking-wider font-light mb-2 text-center md:text-left">
                 Technologies I have been experiencing here:
               </p>
               <GridList
                 items={experience.techs.techStack}
-                columns={experience.techs.columns}
+                minColumnWidth={experience.techs.minColumnWidth}
               />
             </div>
           </div>
-          <div className="order-1 md:order-2 flex flex-col gap-4">
+          <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 max-w-[540px]">
             <h2 className="text-xl font-bold text-secondary">
               {experience.title} @
             </h2>
@@ -137,7 +139,7 @@ export default function Experience() {
             <h3 className="text-base font-bold text-primary ml-8">
               {experience.duration}
             </h3>
-            <DarkBox className="xs:max-w-2xl p-6 min-w-[400px]">
+            <DarkBox className="xs:max-w-2xl p-6">
               <ul className="flex flex-col gap-2 text-sm">
                 {experience.highlights.map((item, i) => (
                   <li key={i} className="carrot-bullet-item tracking-wider">
@@ -150,7 +152,12 @@ export default function Experience() {
         </div>
 
         {/* Indicators */}
-        <div className="flex justify-center mt-6 gap-2">
+        <div
+          className={`
+            flex justify-center mt-6 gap-2
+            ${"md:fixed md:bottom-6 md:left-1/2 md:-translate-x-1/2"}
+          `}
+        >
           {experiences.map((_, i) => (
             <button
               key={i}

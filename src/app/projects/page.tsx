@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
-import GridList from "@/components/GridList";
 import DarkBox from "@/components/Darkbox";
 import IconLink from "@/components/IconLink";
 import IconWrapper from "@/components/IconWrapper";
@@ -113,19 +112,29 @@ export default function Projects() {
           <span>Personal Projects</span>
           <span className="after-light-line"></span>
         </h1>
-        <p className="font-light">{index + 1}.</p>
+        <p className="text-gray">{index + 1}.</p>
       </div>
       <div className="w-full max-w-5xl px-6 sm:px-8 mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col gap-4">
+        <div
+          className={`flex flex-col md:flex-row items-center gap-8 
+          ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+        >
+          <div className="flex flex-col gap-4 max-w-[500px]">
             <h1 className="text-3xl font-bold text-title">{project.name}</h1>
-            <DarkBox className="xs:max-w-2xl p-6 min-w-[400px]">
+            <DarkBox className="xs:max-w-md p-6 min-w-[400px]">
               <p>{project.description}</p>
             </DarkBox>
             <div>
-              <GridList items={project.tags} />
+              <ul className="flex flex-wrap ml-4 gap-2">
+                {project.tags.map((tag, i) => (
+                  <li key={i} className="tracking-widest text-sm">
+                    {tag}
+                    {i < project.tags.length - 1 && ","}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex space-x-4 justify-center md:justify-start">
+            <div className="flex space-x-4">
               {project.links?.map((link, i) => (
                 <IconLink key={i} href={link.url}>
                   <IconWrapper Icon={link.Icon} />
@@ -134,17 +143,22 @@ export default function Projects() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-4">
-            <div className="max-w-[600px] max-h-[500px]">
+            <div className="w-full max-w-[600px] h-auto max-h-[500px]">
               <img
                 src={project.image}
                 alt={`Image for ${project.name}`}
-                className="h-full w-full object-contain"
+                className="w-full h-auto max-h-[500px] object-contain"
               />
             </div>
           </div>
         </div>
         {/* Indicators */}
-        <div className="flex justify-center mt-6 gap-2">
+        <div
+          className={`
+            flex justify-center mt-6 gap-2
+            ${"md:fixed md:bottom-6 md:left-1/2 md:-translate-x-1/2"}
+          `}
+        >
           {projects.map((_, i) => (
             <button
               key={i}

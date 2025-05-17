@@ -3,18 +3,24 @@ import React from "react";
 
 interface GridListProps {
   items: string[];
-  columns?: number;
+  minColumnWidth?: number;
 }
 
-const GridList: React.FC<GridListProps> = ({ items, columns = 2 }) => {
-  const mdColsClass = `md:grid-cols-${columns}`;
-
+const GridList: React.FC<GridListProps> = ({ items, minColumnWidth = 160 }) => {
   return (
     <ul
-      className={`grid grid-cols-2 ${mdColsClass} gap-1 lg:w-auto w-max mx-auto justify-center`}
+      style={{
+        display: "grid",
+        // Responsive grid layout with a minimum column width (minimum of 2 & maximum of 4 columns)
+        gridTemplateColumns: `repeat(auto-fit, minmax(min(100%/3, max(${minColumnWidth}px, 100%/5)), 1fr))`,
+      }}
+      className="gap-1 mx-auto justify-center"
     >
       {items.map((item, index) => (
-        <li key={index} className="carrot-bullet-item tracking-wider">
+        <li
+          key={index}
+          className="carrot-bullet-item tracking-wider max-w-full"
+        >
           {item}
         </li>
       ))}
