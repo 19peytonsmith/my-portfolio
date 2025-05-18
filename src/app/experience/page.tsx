@@ -95,6 +95,7 @@ export default function Experience() {
   const [index, setIndex] = useState(0);
   const experience = experiences[index];
 
+  // Preload images to avoid flickering
   useEffect(() => {
     experiences.forEach((experience) => {
       const img = new Image();

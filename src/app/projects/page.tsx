@@ -129,6 +129,7 @@ export default function Projects() {
   const [index, setIndex] = useState(0);
   const project = projects[index];
 
+  // Preload images to avoid flickering
   useEffect(() => {
     projects.forEach((project) => {
       const img = new Image();
