@@ -3,12 +3,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const { setTheme, theme, systemTheme } = useTheme();
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const isDark = currentTheme === "dark";
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -45,22 +51,31 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+          </div>
+
+          <div className="flex items-center gap-6">
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="transition-colors duration-1000 hover:text-primary"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={24} /> : <Moon size={24} />}
+            </button>
             <a
               href="/assets/Peyton_Smith_Resume_2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary hover:text-primary transition tracking-widest border-2 px-3 py-2 rounded-full border-primary"
+              className="hidden md:flex text-secondary hover:text-primary transition tracking-widest border-2 px-3 py-2 rounded-full border-primary"
             >
               Resume
             </a>
+            <button
+              className="md:hidden text-secondary focus:outline-none"
+              onClick={toggleMenu}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          <button
-            className="md:hidden text-secondary focus:outline-none"
-            onClick={toggleMenu}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
 

@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Manrope, Fira_Code } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -27,10 +28,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${firaCode.variable}`}>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${firaCode.variable}`}
+      suppressHydrationWarning
+    >
       <body>
-        <Navbar />
-        <main>{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

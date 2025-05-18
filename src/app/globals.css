@@ -4,6 +4,8 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff; /* White */
   --foreground: #171717; /* Very dark gray */
@@ -17,19 +19,17 @@
   --color-title: #007a8a; /* Teal */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #333333; /* Very dark gray */
-    --foreground: #ededed; /* Light gray */
+.dark {
+  --background: #333333; /* Very dark gray */
+  --foreground: #ededed; /* Light gray */
 
-    --color-primary: #90ee90; /* Light green */
-    --color-secondary: #ffffff; /* White */
+  --color-primary: #90ee90; /* Light green */
+  --color-secondary: #ffffff; /* White */
 
-    --box-background: #18191a4d; /* Dark gray */
-    --box-text: #cccccc; /* Light gray */
+  --box-background: #18191a4d; /* Dark gray */
+  --box-text: #cccccc; /* Light gray */
 
-    --color-title: #00ced1; /* Dark cyan */
-  }
+  --color-title: #00ced1; /* Dark cyan */
 }
 
 @theme inline {
