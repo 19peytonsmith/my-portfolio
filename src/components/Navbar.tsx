@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -10,6 +10,12 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { setTheme, theme, systemTheme } = useTheme();
 
@@ -59,7 +65,7 @@ export default function Navbar() {
               className="transition-colors duration-1000 hover:text-primary"
               aria-label="Toggle Theme"
             >
-              {isDark ? <Sun size={24} /> : <Moon size={24} />}
+              {mounted && (isDark ? <Sun size={24} /> : <Moon size={24} />)}
             </button>
             <a
               href="/assets/Peyton_Smith_Resume_2025.pdf"

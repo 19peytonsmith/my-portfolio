@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DarkBox from "@/components/Darkbox";
 import IconLink from "@/components/IconLink";
@@ -129,6 +129,13 @@ export default function Projects() {
   const [index, setIndex] = useState(0);
   const project = projects[index];
 
+  useEffect(() => {
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.image;
+    });
+  }, []);
+
   return (
     <div className="md:mt-20 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 mb-2">
@@ -174,6 +181,7 @@ export default function Projects() {
                 src={project.image}
                 alt={`Image for ${project.name}`}
                 className="w-full h-auto max-h-[500px] object-contain"
+                loading="eager"
               />
             </div>
           </div>

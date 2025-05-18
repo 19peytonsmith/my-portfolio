@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import GridList from "@/components/GridList";
@@ -95,6 +95,13 @@ export default function Experience() {
   const [index, setIndex] = useState(0);
   const experience = experiences[index];
 
+  useEffect(() => {
+    experiences.forEach((experience) => {
+      const img = new Image();
+      img.src = experience.image;
+    });
+  }, []);
+
   return (
     <div className="md:mt-20 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
@@ -110,6 +117,7 @@ export default function Experience() {
               <img
                 src={experience.image}
                 alt={`Image for ${experience.company}`}
+                loading="eager"
               />
             </div>
             <div>
