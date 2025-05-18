@@ -13,10 +13,10 @@
   --color-primary: #2e8b57; /* Sea green */
   --color-secondary: #2c2c2e; /* Charcoal gray */
 
+  --color-title: #007a8a; /* Teal */
+
   --box-background: #f2f2f2cc; /* Light translucent gray */
   --box-text: #333333; /* Very dark gray */
-
-  --color-title: #007a8a; /* Teal */
 }
 
 .dark {
@@ -26,10 +26,10 @@
   --color-primary: #90ee90; /* Light green */
   --color-secondary: #ffffff; /* White */
 
+  --color-title: #00ced1; /* Dark cyan */
+
   --box-background: #18191a4d; /* Dark gray */
   --box-text: #cccccc; /* Light gray */
-
-  --color-title: #00ced1; /* Dark cyan */
 }
 
 @theme inline {
@@ -40,6 +40,7 @@
   --color-secondary: var(--color-secondary);
 
   --color-title: var(--color-title);
+
   --box-background: var(--box-background);
   --box-text: var(--box-text);
 
