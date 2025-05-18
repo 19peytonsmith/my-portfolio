@@ -7,6 +7,8 @@ import IconLink from "@/components/IconLink";
 import IconWrapper from "@/components/IconWrapper";
 import Indicators from "@/components/Indicators";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 import type { LucideIcon } from "lucide-react";
 import { ExternalLink, Github, Youtube } from "lucide-react";
 
@@ -146,47 +148,54 @@ export default function Projects() {
         </h1>
       </div>
       <div className="w-full max-w-7xl px-6 sm:px-8 mx-auto">
-        <div
-          className={`flex flex-col md:flex-row justify-center items-center gap-8
-          ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
-        >
-          <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
-            <p className="text-gray">{index + 1}.</p>
-            <h1 className="text-3xl font-bold text-title md:text-left text-center">
-              {project.name}
-            </h1>
-            <DarkBox className="xs:max-w-md p-6">
-              <p dangerouslySetInnerHTML={{ __html: project.description }} />
-            </DarkBox>
-            <div>
-              <ul className="flex flex-wrap ml-4 gap-2 md:justify-start justify-center">
-                {project.tags.map((tag, i) => (
-                  <li key={i} className="tracking-widest text-sm">
-                    {tag}
-                    {i < project.tags.length - 1 && ","}
-                  </li>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 10 }}
+            transition={{ duration: 0.2 }}
+            className={`flex flex-col md:flex-row justify-center items-center gap-8
+              ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+          >
+            <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
+              <p className="text-gray">{index + 1}.</p>
+              <h1 className="text-3xl font-bold text-title md:text-left text-center">
+                {project.name}
+              </h1>
+              <DarkBox className="xs:max-w-md p-6">
+                <p dangerouslySetInnerHTML={{ __html: project.description }} />
+              </DarkBox>
+              <div>
+                <ul className="flex flex-wrap ml-4 gap-2 md:justify-start justify-center">
+                  {project.tags.map((tag, i) => (
+                    <li key={i} className="tracking-widest text-sm">
+                      {tag}
+                      {i < project.tags.length - 1 && ","}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex space-x-4">
+                {project.links?.map((link, i) => (
+                  <IconLink key={i} href={link.url}>
+                    <IconWrapper Icon={link.Icon} />
+                  </IconLink>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div className="flex space-x-4">
-              {project.links?.map((link, i) => (
-                <IconLink key={i} href={link.url}>
-                  <IconWrapper Icon={link.Icon} />
-                </IconLink>
-              ))}
+            <div className="flex flex-col justify-center items-center gap-4">
+              <div className="w-full max-w-[600px] h-auto max-h-[500px]">
+                <img
+                  src={project.image}
+                  alt={`Image for ${project.name}`}
+                  className="w-full h-auto max-h-[500px] object-contain"
+                  loading="eager"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <div className="w-full max-w-[600px] h-auto max-h-[500px]">
-              <img
-                src={project.image}
-                alt={`Image for ${project.name}`}
-                className="w-full h-auto max-h-[500px] object-contain"
-                loading="eager"
-              />
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
         <Indicators items={projects} currentIndex={index} onSelect={setIndex} />
       </div>
     </div>

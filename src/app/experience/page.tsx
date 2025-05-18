@@ -7,6 +7,8 @@ import GridList from "@/components/GridList";
 import DarkBox from "@/components/Darkbox";
 import Indicators from "@/components/Indicators";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 interface Experience {
   company: string;
   title: string;
@@ -112,51 +114,60 @@ export default function Experience() {
         </h1>
       </div>
       <div className="w-full max-w-7xl px-6 sm:px-8 mx-auto">
-        <div className="flex flex-col md:flex-row justify-between gap-8">
-          <div className="order-2 md:order-1 flex flex-col gap-4 flex-1">
-            <div className="w-full max-w-[800px] max-h-[400px]">
-              <img
-                src={experience.image}
-                alt={`Image for ${experience.company}`}
-                loading="eager"
-              />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col md:flex-row justify-between gap-8"
+          >
+            <div className="order-2 md:order-1 flex flex-col gap-4 flex-1">
+              <div className="w-full max-w-[800px] max-h-[400px]">
+                <img
+                  src={experience.image}
+                  alt={`Image for ${experience.company}`}
+                  loading="eager"
+                />
+              </div>
+              <div>
+                <p className="text-sm tracking-wider font-light mb-2 text-center md:text-left">
+                  Technologies I have been experiencing here:
+                </p>
+                <GridList
+                  items={experience.techs.techStack}
+                  minColumnWidth={experience.techs.minColumnWidth}
+                />
+              </div>
             </div>
-            <div>
-              <p className="text-sm tracking-wider font-light mb-2 text-center md:text-left">
-                Technologies I have been experiencing here:
-              </p>
-              <GridList
-                items={experience.techs.techStack}
-                minColumnWidth={experience.techs.minColumnWidth}
-              />
+            <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 md:max-w-[540px]">
+              <h2 className="text-xl font-bold text-secondary">
+                {experience.title} @
+              </h2>
+              <Link
+                href={experience.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-4xl font-extrabold text-title hover:underline"
+              >
+                {experience.company}
+              </Link>
+              <h3 className="text-base font-bold text-primary ml-8">
+                {experience.duration}
+              </h3>
+              <DarkBox className="md:max-w-2xl w-full p-6">
+                <ul className="flex flex-col gap-2 text-sm">
+                  {experience.highlights.map((item, i) => (
+                    <li key={i} className="carrot-bullet-item tracking-wider">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </DarkBox>
             </div>
-          </div>
-          <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 md:max-w-[540px]">
-            <h2 className="text-xl font-bold text-secondary">
-              {experience.title} @
-            </h2>
-            <Link
-              href={experience.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-4xl font-extrabold text-title hover:underline"
-            >
-              {experience.company}
-            </Link>
-            <h3 className="text-base font-bold text-primary ml-8">
-              {experience.duration}
-            </h3>
-            <DarkBox className="md:max-w-2xl w-full p-6">
-              <ul className="flex flex-col gap-2 text-sm">
-                {experience.highlights.map((item, i) => (
-                  <li key={i} className="carrot-bullet-item tracking-wider">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </DarkBox>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
         <Indicators
           items={experiences}
           currentIndex={index}

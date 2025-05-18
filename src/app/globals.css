@@ -7,7 +7,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff; /* White */
+  --background: linear-gradient(90deg, #fdfdfd, #ffffff, #f8f8f8);
   --foreground: #171717; /* Very dark gray */
 
   --color-primary: #2e8b57; /* Sea green */
@@ -20,7 +20,7 @@
 }
 
 .dark {
-  --background: #333333; /* Very dark gray */
+  --background: linear-gradient(90deg, #2e2e2e, #333333, #383838);
   --foreground: #ededed; /* Light gray */
 
   --color-primary: #90ee90; /* Light green */
