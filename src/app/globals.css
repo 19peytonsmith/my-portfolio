@@ -15,6 +15,10 @@
 
   --color-title: #007a8a; /* Teal */
 
+  --color-mobile-menu: #ffffff; /* White */
+
+  --color-menu-border: #171717; /* Light gray */
+
   --box-background: #f2f2f2cc; /* Light translucent gray */
   --box-text: #333333; /* Very dark gray */
 }
@@ -28,6 +32,10 @@
 
   --color-title: #00ced1; /* Dark cyan */
 
+  --color-mobile-menu: #333333; /* Very dark gray */
+
+  --color-menu-border: #e0e0e0; /* Light gray */
+
   --box-background: #18191a4d; /* Dark gray */
   --box-text: #cccccc; /* Light gray */
 }
@@ -40,6 +48,10 @@
   --color-secondary: var(--color-secondary);
 
   --color-title: var(--color-title);
+
+  --color-mobile-menu: var(--color-mobile-menu);
+
+  --color-menu-border: var(--color-menu-border);
 
   --box-background: var(--box-background);
   --box-text: var(--box-text);
@@ -59,6 +71,10 @@ body {
 
 li {
   font-family: var(--font-fira-code);
+}
+
+.resume {
+  @apply border-2 px-4 py-2 rounded-full border-primary;
 }
 
 @layer utilities {
