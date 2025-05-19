@@ -56,6 +56,7 @@
   --box-background: var(--box-background);
   --box-text: var(--box-text);
 
+  --font-fira-code: var(--font-fira-code);
   --font-sans: var(--font-manrope), sans-serif;
   --font-mono: var(--font-geist-mono);
 
@@ -67,10 +68,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-li {
-  font-family: var(--font-fira-code);
 }
 
 .resume {

@@ -170,7 +170,10 @@ export default function Projects() {
               <div>
                 <ul className="flex flex-wrap ml-4 gap-2 md:justify-start justify-center">
                   {project.tags.map((tag, i) => (
-                    <li key={i} className="tracking-widest text-sm">
+                    <li
+                      key={i}
+                      className="tracking-widest text-sm font-fira-code"
+                    >
                       {tag}
                       {i < project.tags.length - 1 && ","}
                     </li>

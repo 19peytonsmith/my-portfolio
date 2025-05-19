@@ -19,7 +19,7 @@ const GridList: React.FC<GridListProps> = ({ items, minColumnWidth = 160 }) => {
       {items.map((item, index) => (
         <li
           key={index}
-          className="carrot-bullet-item tracking-wider max-w-full whitespace-nowrap"
+          className="carrot-bullet-item tracking-wider max-w-full whitespace-nowrap font-fira-code"
         >
           {item}
         </li>
