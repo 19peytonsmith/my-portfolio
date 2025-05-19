@@ -106,7 +106,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <div className="md:mt-20 md:py-0 py-8">
+    <div className="md:mt-20 md:mb-8 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
           <span>Work Experience</span>
