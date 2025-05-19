@@ -4,7 +4,7 @@ This repository contains the source code for my personal portfolio website. The 
 
 ## 🌐 Live Site
 
-(COMING SOON)
+[www.peytonjsmith.com](https://peytonjsmith.com)
 
 ## 🛠️ Tech Stack
 
