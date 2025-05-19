@@ -72,7 +72,7 @@ export default function Navbar() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="w-full border-b border-menu-border shadow-md">
+    <nav className="w-full border-b border-menu-border shadow-md bg-nav ">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="flex justify-between items-center h-24">
           <Link
@@ -138,7 +138,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 w-64 bg-mobile-menu border-l border-b border-menu-border shadow-md p-6 md:hidden z-50"
+            className="fixed top-0 right-0 w-64 bg-nav border-l border-b border-menu-border shadow-md p-6 md:hidden z-50"
           >
             <div className="flex flex-col gap-8">
               <div className="flex justify-end mb-4">

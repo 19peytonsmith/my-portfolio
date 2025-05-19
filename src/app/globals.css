@@ -15,7 +15,7 @@
 
   --color-title: #007a8a; /* Teal */
 
-  --color-mobile-menu: #ffffff; /* White */
+  --color-nav: #f5f5f5; /* Light gray */
 
   --color-menu-border: #171717; /* Light gray */
 
@@ -32,11 +32,11 @@
 
   --color-title: #00ced1; /* Dark cyan */
 
-  --color-mobile-menu: #333333; /* Very dark gray */
+  --color-nav: #2b2c2c; /* Dark gray */
 
   --color-menu-border: #e0e0e0; /* Light gray */
 
-  --box-background: #18191a4d; /* Dark gray */
+  --box-background: #18191a4d; /* Dark translucent gray */
   --box-text: #cccccc; /* Light gray */
 }
 
@@ -51,7 +51,7 @@
 
   --color-mobile-menu: var(--color-mobile-menu);
 
-  --color-menu-border: var(--color-menu-border);
+  --color-nav: var(--color-nav);
 
   --box-background: var(--box-background);
   --box-text: var(--box-text);
