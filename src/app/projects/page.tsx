@@ -140,7 +140,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="md:mt-20 md:py-0 py-8">
+    <div className="md:mt-20 md:mb-8 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 mb-2">
         <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
           <span>Personal Projects</span>
@@ -155,8 +155,9 @@ export default function Projects() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
             transition={{ duration: 0.2 }}
-            className={`flex flex-col md:flex-row justify-center items-center gap-8
-              ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+            className={
+              "flex flex-col md:flex-row justify-center items-center gap-8"
+            }
           >
             <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
               <p className="text-gray">{index + 1}.</p>
