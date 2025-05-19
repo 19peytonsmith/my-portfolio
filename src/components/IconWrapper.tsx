@@ -2,14 +2,14 @@
 import React from "react";
 import type { LucideIcon } from "lucide-react";
 
-interface LucideIconWrapperProps {
+interface IconWrapperProps {
   Icon: LucideIcon;
   className?: string;
   size?: number;
   strokeWidth?: number;
 }
 
-const LucideIconWrapper: React.FC<LucideIconWrapperProps> = ({
+const IconWrapper: React.FC<IconWrapperProps> = ({
   Icon,
   className = "md:w-7 md:h-7 w-10 h-10",
   size = 28,
@@ -18,4 +18,4 @@ const LucideIconWrapper: React.FC<LucideIconWrapperProps> = ({
   return <Icon className={className} size={size} strokeWidth={strokeWidth} />;
 };
 
-export default LucideIconWrapper;
+export default IconWrapper;
