@@ -9,7 +9,7 @@ type DarkBoxProps = {
 export default function DarkBox({ children, className = "" }: DarkBoxProps) {
   return (
     <div
-      className={`tracking-wider font-light p-4 rounded-lg bg-[var(--box-background)] text-[var(--box-text)] ${className}`}
+      className={`p-4 rounded-lg bg-[var(--box-background)] text-[var(--box-text)] ${className}`}
     >
       {children}
     </div>
