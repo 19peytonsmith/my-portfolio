@@ -23,7 +23,7 @@ export default function AboutMe() {
   return (
     <div className="md:py-0 py-8 md:mt-20 md:mb-8">
       <div className="max-w-5xl mx-auto w-full px-6 sm:px-8">
-        <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
+        <h1 className="relative inline-block md:text-5xl text-4xl font-extrabold text-primary mb-16">
           <span>Who am I?</span>
           <span className="after-light-line"></span>
         </h1>
@@ -41,7 +41,7 @@ export default function AboutMe() {
             </div>
           </div>
           <div>
-            <p className="text-sm tracking-wider font-light mb-2 text-center md:text-left">
+            <p className="text-sm tracking-widest font-light mb-2 text-center md:text-left">
               Here's some technologies I have experience with:
             </p>
             <GridList items={techStack} minColumnWidth={130} />
@@ -49,7 +49,7 @@ export default function AboutMe() {
         </div>
         <div className="flex flex-1 flex-col justify-center items-center">
           <DarkBox className="p-6">
-            <p className="text-sm tracking-widest">
+            <p className="text-sm tracking-wider">
               Hi! My name is Peyton — I'm a 23-year-old Software Engineer with
               hands-on experience developing full-stack web applications using
               Ruby on Rails and .NET. I graduated with high honors from Florida
@@ -60,7 +60,7 @@ export default function AboutMe() {
               tutoring fellow classmates and assistant teaching our high school
               algebra class.
             </p>
-            <p className="text-sm mt-2 tracking-widest">
+            <p className="text-sm mt-2 tracking-wider">
               When I entered college, I was new to coding but quickly grew to
               enjoy it. I began with C++, explored engineering languages like
               MATLAB and C, and eventually transitioned into full-stack
@@ -68,7 +68,7 @@ export default function AboutMe() {
               self-driven projects and real-world experience, I've expanded my
               skillset to include Python, SQL, Swift, and Ruby on Rails.
             </p>
-            <p className="text-sm mt-2 tracking-widest">
+            <p className="text-sm mt-2 tracking-wider">
               Since graduating, I've worked as an Application Developer at the
               Institute for Intergovernmental Research, where I build scalable,
               accessible web applications for justice and law enforcement
@@ -77,7 +77,7 @@ export default function AboutMe() {
               migrated infrastructure to AWS, and improved the user experience
               and reliability of their platform.
             </p>
-            <p className="text-sm mt-2 tracking-widest">
+            <p className="text-sm mt-2 tracking-wider">
               I'm proud of my journey so far and excited to keep growing—whether
               that's mastering new frameworks, collaborating with creative
               teams, or tackling technical challenges that make a real impact.

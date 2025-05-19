@@ -9,6 +9,9 @@ import Indicators from "@/components/Indicators";
 
 import { motion, AnimatePresence } from "framer-motion";
 
+import { Calendar, BriefcaseBusiness } from "lucide-react";
+import IconWrapper from "@/components/IconWrapper";
+
 interface Experience {
   company: string;
   title: string;
@@ -108,7 +111,7 @@ export default function Experience() {
   return (
     <div className="md:mt-20 md:mb-8 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
-        <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
+        <h1 className="relative inline-block text-4xl md:text-5xl font-extrabold text-primary mb-16">
           <span>Work Experience</span>
           <span className="after-light-line"></span>
         </h1>
@@ -132,7 +135,7 @@ export default function Experience() {
                 />
               </div>
               <div>
-                <p className="text-sm tracking-wider font-light mb-2 text-center md:text-left">
+                <p className="text-sm tracking-widest font-light mb-2 text-center md:text-left">
                   Technologies I have been experiencing here:
                 </p>
                 <GridList
@@ -142,8 +145,10 @@ export default function Experience() {
               </div>
             </div>
             <div className="order-1 md:order-2 flex flex-col flex-1 gap-4 md:max-w-[540px]">
-              <h2 className="text-xl font-bold text-secondary">
-                {experience.title} @
+              <h2 className="text-xl font-bold text-secondary flex items-center gap-2">
+                <IconWrapper Icon={BriefcaseBusiness} className="w-6 h-6" />
+                {experience.title}
+                <span className="text-xs">@</span>
               </h2>
               <Link
                 href={experience.website}
@@ -153,13 +158,17 @@ export default function Experience() {
               >
                 {experience.company}
               </Link>
-              <h3 className="text-base font-bold text-primary ml-8">
+              <h3 className="text-base font-bold text-primary ml-8 flex items-center gap-2">
+                <IconWrapper Icon={Calendar} className="w-5 h-5" />
                 {experience.duration}
               </h3>
               <DarkBox className="md:max-w-2xl w-full p-6">
                 <ul className="flex flex-col gap-2 text-sm">
                   {experience.highlights.map((item, i) => (
-                    <li key={i} className="carrot-bullet-item tracking-wider">
+                    <li
+                      key={i}
+                      className="carrot-bullet-item tracking-wider font-sans"
+                    >
                       {item}
                     </li>
                   ))}

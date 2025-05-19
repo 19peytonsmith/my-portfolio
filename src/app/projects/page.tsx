@@ -142,7 +142,7 @@ export default function Projects() {
   return (
     <div className="md:mt-20 md:mb-8 md:py-0 py-8">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 mb-2">
-        <h1 className="relative inline-block text-5xl font-extrabold text-primary mb-16">
+        <h1 className="relative inline-block md:text-5xl text-4xl font-extrabold text-primary mb-16">
           <span>Personal Projects</span>
           <span className="after-light-line"></span>
         </h1>
@@ -159,12 +159,12 @@ export default function Projects() {
               "flex flex-col md:flex-row justify-center items-center gap-8"
             }
           >
-            <div className="flex flex-col gap-4 md:items-start items-center max-w-[500px]">
+            <div className="flex flex-col gap-4 max-w-[500px]">
               <p className="text-gray">{index + 1}.</p>
-              <h1 className="text-3xl font-bold text-title md:text-left text-center">
+              <h1 className="text-3xl font-bold text-title flex items-center gap-2">
                 {project.name}
               </h1>
-              <DarkBox className="xs:max-w-md p-6">
+              <DarkBox className="xs:max-w-md p-6 tracking-wider md:mx-0 mx-auto">
                 <p dangerouslySetInnerHTML={{ __html: project.description }} />
               </DarkBox>
               <div>
@@ -180,7 +180,7 @@ export default function Projects() {
                   ))}
                 </ul>
               </div>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 md:mx-0 mx-auto">
                 {project.links?.map((link, i) => (
                   <IconLink key={i} href={link.url}>
                     <IconWrapper Icon={link.Icon} />
@@ -189,11 +189,11 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-4">
-              <div className="w-full max-w-[600px] h-auto max-h-[500px]">
+              <div className="w-full max-w-[600px] min-w-[350px] h-auto max-h-[500px]">
                 <img
                   src={project.image}
                   alt={`Image for ${project.name}`}
-                  className="w-full h-auto max-h-[500px] object-contain"
+                  className="w-full h-auto max-h-[500px] object-contain drop-shadow-lg drop-shadow-title"
                   loading="eager"
                 />
               </div>
