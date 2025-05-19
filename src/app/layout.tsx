@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import { Manrope, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
+import CubeBackground from "@/components/CubeBackground";
+
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -41,7 +43,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main>{children}</main>
+          <main>
+            {children}
+            <CubeBackground />
+          </main>
         </ThemeProvider>
       </body>
     </html>

@@ -74,6 +74,33 @@ body {
   @apply border-2 px-4 py-2 rounded-full border-primary;
 }
 
+.cube-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cube {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.07);
+  transform: rotate(45deg);
+  animation: floatCube 20s linear infinite;
+}
+
+@keyframes floatCube {
+  0% {
+    transform: translateY(100vh) rotate(45deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(225deg);
+  }
+}
+
 @layer utilities {
   @media (min-width: 768px) {
     .after-light-line {
