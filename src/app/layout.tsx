@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import { Manrope, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
+import { Analytics } from "@vercel/analytics/next";
+
 import CubeBackground from "@/components/CubeBackground";
 
 const manrope = Manrope({
@@ -46,6 +48,7 @@ export default function RootLayout({
           <main>
             {children}
             <CubeBackground />
+            <Analytics />
           </main>
         </ThemeProvider>
       </body>
